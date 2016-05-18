@@ -1,14 +1,14 @@
-# A randomized QuickSort algorithm.
-import random
+# A standard quicksort
+
 import Testing
 
-def randQS(xs,key):
+def quickSort(xs,key):
     if key is None:
         key = lambda x:x
     if len(xs) < 2:
         return xs
     else:
-        partition = xs[random.randint(0,len(xs)-1)]
+        partition = xs[0]
         l = []
         r = []
         matches = []
@@ -19,8 +19,7 @@ def randQS(xs,key):
                 matches.append(x)
             else:
                 r.append(x)
-            return randQS(l,key) + matches + randQS(r,key)
-
-
+        return quickSort(l,key) + matches + quickSort(r,key)
+    
 if __name__ == "__main__":
-    Testing.test(randQS)
+    Testing.test(quickSort)
