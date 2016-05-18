@@ -1,6 +1,6 @@
 # A Merge-Sort implementation in Python
 # (c) 2016 Nathan Andersen
-import random
+import Testing
 
 def mergeSort(xs,key=None):
     """Sorts a list, xs, in O(n*log n) time."""
@@ -39,9 +39,4 @@ def merge(l,r,key):
 
 
 if __name__ == "__main__":
-    nums = [n for n in range(1000)]
-    random.shuffle(nums)
-    print(nums)
-    print("sorting")
-    nums = mergeSort(nums,lambda x:(-1*x))
-    print(nums)
+    Testing.test(mergeSort)
