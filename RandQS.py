@@ -1,5 +1,5 @@
 # A randomized QuickSort algorithm.
-import random
+from random import randint
 import Testing
 
 def randQS(xs,key):
@@ -8,7 +8,7 @@ def randQS(xs,key):
     if len(xs) < 2:
         return xs
     else:
-        partition = xs[random.randint(0,len(xs)-1)]
+        partition = xs[randint(0,len(xs)-1)]
         l = []
         r = []
         matches = []
@@ -19,8 +19,7 @@ def randQS(xs,key):
                 matches.append(x)
             else:
                 r.append(x)
-            return randQS(l,key) + matches + randQS(r,key)
-
+        return randQS(l,key) + matches + randQS(r,key)
 
 if __name__ == "__main__":
     Testing.test(randQS)
