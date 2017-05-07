@@ -12,14 +12,8 @@ def bogosort(xs,key=None):
 
 
 def is_in_order(xs,key):
-    for index,value in enumerate(xs[:-1]):
-        if reduce(lambda x,y: x or y,map(lambda x: key(x) < key(value), xs[index+1:])):
-            # because when you're killing an ant with a missile
-            # go big or go home
-            return False
-#        for val in xs[index+1:]
-#            if value > val:
-#                return false
+    for x,y in zip(xs[:-1],xs[1:]):
+        if x > y: return False
     return True
 
 
