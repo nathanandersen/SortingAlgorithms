@@ -1,12 +1,12 @@
-import Testing
+from random import sample
 
-from random import shuffle
-
-def bogosort(xs,key=None):
+def bozosort(xs,key=None):
     if key is None:
         key = lambda x:x
+    indices = list(range(len(xs)))
     while not is_in_order(xs,key):
-        shuffle(xs)
+        a,b = sample(indices,2)
+        xs[a],xs[b] = xs[b],xs[a]
     return xs
 
 
@@ -20,7 +20,7 @@ from Testing import test_inverted
 from Testing import wrapper
 
 def special_test(n):
-    test_inverted(bogosort,n)
+    test_inverted(bozosort,n)
 
 
 if __name__ == "__main__":
